@@ -57,6 +57,9 @@
     <Compile Include="Enum.cs" />
     <Compile Include="LeavesActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\Leaves.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
