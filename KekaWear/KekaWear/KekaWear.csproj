@@ -49,8 +49,12 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClockIn.cs" />
-    <Compile Include="EmployeeActivity.cs" />
+    <Compile Include="BluetoothBroadcastReceiver.cs" />
+    <Compile Include="BluetoothHandler.cs" />
+    <Compile Include="BluetoothService.cs" />
+    <Compile Include="ClockInActivity.cs" />
+    <Compile Include="EmployeeDirActivity.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="LeavesActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -94,6 +98,21 @@
     <PackageReference Include="Xamarin.Android.Support.Fragment" Version="27.*" />
     <PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="27.*" />
     <PackageReference Include="Xamarin.Android.Wear" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_clockIn.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_employeeDir.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_leaves.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

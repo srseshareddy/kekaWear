@@ -4,8 +4,8 @@ using Android.OS;
 
 namespace KekaWear
 {
-    [Activity(Label = "LeavesActivity")]
-    public class LeavesActivity : Activity
+    [Activity(Label = "ClockInActivity")]
+    public class ClockInActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

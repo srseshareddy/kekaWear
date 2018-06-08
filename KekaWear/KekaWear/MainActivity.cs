@@ -1,31 +1,46 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using Android.Support.Wearable.Views;
-using Android.Support.V4.App;
-using Android.Support.V4.View;
 using Android.Support.Wearable.Activity;
-using Java.Interop;
-using Android.Views.Animations;
+using Android.Widget;
 
 namespace KekaWear
 {
     [Activity(Label = "@string/app_name", MainLauncher = true)]
     public class MainActivity : WearableActivity
     {
-        private TextView _textView; 
+        Button empDirActivityBtn,leaveActivityBtn,clockInActivityBtn;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_main);
 
-            _textView = FindViewById<TextView>(Resource.Id.text);
+            empDirActivityBtn = FindViewById<Button>(Resource.Id.empDirActivityBtn);
+            leaveActivityBtn = FindViewById<Button>(Resource.Id.leavesActivityBtn);
+            clockInActivityBtn = FindViewById<Button>(Resource.Id.clockInActivityBtn);
+
+            Intent activityIntent;
+
+            empDirActivityBtn.Click += (sender, e) =>
+            {
+                activityIntent = new Intent(this, typeof(EmployeeDirActivity));
+                StartActivity(activityIntent);
+            };
+
+            leaveActivityBtn.Click += (sender, e) =>
+            {
+                activityIntent = new Intent(this, typeof(LeavesActivity));
+                StartActivity(activityIntent);
+            };
+
+            clockInActivityBtn.Click += (sender, e) =>
+            {
+                activityIntent = new Intent(this, typeof(ClockInActivity));
+                StartActivity(activityIntent);
+            };
+
             SetAmbientEnabled();
         }
     }
