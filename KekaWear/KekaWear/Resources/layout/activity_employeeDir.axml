@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.wearable.view.WatchViewStub xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_employeeDir_watch_view_stub"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    app:rectLayout="@layout/rect_activity_employeeDir"
+    app:roundLayout="@layout/round_activity_employeeDitr"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context="com.technotalkative.wearablelistviewdemo.MainActivity"
+    tools:deviceIds="wear" />

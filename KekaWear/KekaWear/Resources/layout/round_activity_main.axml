@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:deviceIds="wear_round"
+    android:gravity="center">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clockInActivityBtn"
+        android:text="Clock In" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clockInActivityBtn"
+        android:id="@+id/leavesActivityBtn"
+        android:text="Leaves" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/leavesActivityBtn"
+        android:id="@+id/empDirActivityBtn"
+        android:text="Employee Directory" />
+</RelativeLayout>

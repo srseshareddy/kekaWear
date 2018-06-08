@@ -31,7 +31,7 @@ namespace Keka_Sample
                     case (int)BluetoothState.Read:
                         Toast.MakeText(Application.Context, "Connection State : " + (BluetoothState)msg.What, ToastLength.Long).Show();
                         var readBuffer = (byte[])msg.Obj;
-                        mainActivity.receivedMsgTxtView.Text = Encoding.ASCII.GetString(readBuffer);
+                        Toast.MakeText(Application.Context, $"Message : {Encoding.ASCII.GetString(readBuffer)}.", ToastLength.Short).Show();
                         break;
                     case (int)BluetoothState.DeviceName:
                         Toast.MakeText(Application.Context, "Connection State : " + (BluetoothState)msg.What, ToastLength.Long).Show();
