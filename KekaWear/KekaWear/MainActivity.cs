@@ -19,6 +19,7 @@ namespace KekaWear
     public class MainActivity : WearableActivity
     {
         private TextView _textView;
+        public TextView test;
 
         protected override void OnCreate(Bundle bundle)
         {
