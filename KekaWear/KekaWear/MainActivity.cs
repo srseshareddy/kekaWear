@@ -18,7 +18,7 @@ namespace KekaWear
     [Activity(Label = "@string/app_name", MainLauncher = true)]
     public class MainActivity : WearableActivity
     {
-        private TextView _textView;       
+        private TextView _textView; 
 
         protected override void OnCreate(Bundle bundle)
         {
