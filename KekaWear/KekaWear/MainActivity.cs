@@ -4,6 +4,7 @@ using Android.Content;
 using Android.OS;
 using Android.Support.Wearable.Activity;
 using Android.Widget;
+using KekaWear.Models.Xhr.Core;
 using System;
 
 namespace KekaWear
@@ -130,7 +131,7 @@ namespace KekaWear
 
         private void ConnectDevice()
         {
-            while(true)
+            while(BluetoothManager.bluetoothService.GetState() != ConnectionState.Connected)
             {
                 try
                 {
