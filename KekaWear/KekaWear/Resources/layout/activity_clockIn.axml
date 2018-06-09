@@ -3,11 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:deviceIds="wear_round"
     android:gravity="center">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/clockInActivityBtn"
+        android:id="@+id/clockInBtn"
         android:text="Clock In" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clockInActivityBtn"
+        android:id="@+id/punchBtn"
+        android:text="Punch" />
 </RelativeLayout>

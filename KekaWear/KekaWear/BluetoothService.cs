@@ -6,10 +6,11 @@ using Java.Lang;
 using Java.Util;
 using System.IO;
 using System.Runtime.CompilerServices;
+using KekaWear.Models.Xhr.Core;
 
-namespace Keka_Sample
+namespace KekaWear
 {
-    class BluetoothService
+    public class BluetoothService
     {
         const string App_Name = "Keka";
         public static UUID uUID { get; set; }

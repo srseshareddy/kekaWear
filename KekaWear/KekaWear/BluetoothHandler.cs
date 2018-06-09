@@ -2,42 +2,47 @@
 using Android.OS;
 using Android.Widget;
 using System.Text;
+using KekaWear.Models.Xhr.Core;
+using Newtonsoft.Json;
 
-namespace Keka_Sample
+namespace KekaWear
 {
-    public partial class MainActivity
+    public class BluetoothHandler : Handler
     {
-        public class BluetoothHandler : Handler
+        Activity activity;
+        public BluetoothHandler(Activity frag)
         {
-            MainActivity mainActivity;
-            public BluetoothHandler(MainActivity frag)
-            {
-                mainActivity = frag;
+            activity = frag;
 
-            }
-            public override void HandleMessage(Message msg)
+        }
+        public override void HandleMessage(Message msg)
+        {
+            switch (msg.What)
             {
-                switch (msg.What)
-                {
-                    case (int)BluetoothState.Change:
-                        Toast.MakeText(Application.Context, "Connection State : " + (ConnectionState)msg.Arg1, ToastLength.Long).Show();
-                        break;
-                    case (int)BluetoothState.Write:
-                        var writeBuffer = (byte[])msg.Obj;
-                        var writeMessage = Encoding.ASCII.GetString(writeBuffer);
-                        Toast.MakeText(Application.Context, "Connection State : " + (BluetoothState)msg.What, ToastLength.Long).Show();
-                        Toast.MakeText(Application.Context, writeMessage, ToastLength.Long).Show();
-                        break;
-                    case (int)BluetoothState.Read:
-                        Toast.MakeText(Application.Context, "Connection State : " + (BluetoothState)msg.What, ToastLength.Long).Show();
-                        var readBuffer = (byte[])msg.Obj;
-                        Toast.MakeText(Application.Context, $"Message : {Encoding.ASCII.GetString(readBuffer)}.", ToastLength.Short).Show();
-                        break;
-                    case (int)BluetoothState.DeviceName:
-                        Toast.MakeText(Application.Context, "Connection State : " + (BluetoothState)msg.What, ToastLength.Long).Show();
-                        Toast.MakeText(Application.Context, $"Connected to {msg.Data.GetString("DeviceName")}.", ToastLength.Short).Show();
-                        break;
-                }
+                case (int)BluetoothState.Change:
+                    switch ((ConnectionState)msg.Arg1)
+                    {
+                        case ConnectionState.Connected:
+                            Toast.MakeText(Application.Context, "Connection Successful", ToastLength.Long).Show();
+                            break;
+                        case ConnectionState.None:
+                        case ConnectionState.Listen:
+                        case ConnectionState.Connecting:
+                            Toast.MakeText(Application.Context, "Activity Not Works Due to Connection State : " + (ConnectionState)msg.Arg1, ToastLength.Long).Show();
+                            break;
+                    }
+                    break;
+                case (int)BluetoothState.Write:
+                    var writeBuffer = (byte[])msg.Obj;
+                    var writeMessage = Encoding.ASCII.GetString(writeBuffer);
+                    break;
+                case (int)BluetoothState.Read:
+                    var readBuffer = (byte[])msg.Obj;
+                    BluetoothManager.result = Encoding.ASCII.GetString(readBuffer);
+                    break;
+                case (int)BluetoothState.DeviceName:
+                    Toast.MakeText(Application.Context, $"Connected to {msg.Data.GetString("DeviceName")}.", ToastLength.Short).Show();
+                    break;
             }
         }
     }

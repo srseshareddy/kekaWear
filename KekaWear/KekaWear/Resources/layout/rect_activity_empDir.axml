@@ -7,7 +7,7 @@
     android:padding="@dimen/inner_frame_layout_padding"
     tools:deviceIds="wear_square"
     android:gravity="center">
-    <android.support.wearable.view.WearableListView
+    <android.support.wearable.view.WearableRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/empDirListView" />

@@ -1,23 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
-namespace KekaWear.Models
+﻿namespace KekaWear.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
-    using System.Text;
-    using System.Threading.Tasks;
 
     namespace Xhr.Core
     {
@@ -1636,6 +1619,49 @@ namespace KekaWear.Models
             Any = 2
         }
 
+
+        public enum ConnectionState
+        {
+            None,
+            Listen,
+            Connecting,
+            Connected
+        }
+
+        public enum BluetoothState
+        {
+            Change,
+            Read,
+            Write,
+            DeviceName
+        }
+
+        public enum CommandEnum
+        {
+            EmpDirFetch,
+            LeavesFetch,
+            ClockInStateFetch,
+            ClockIn,
+            ClockOut,
+            Punch
+        }
+
+        public enum ResultState
+        {
+            LoginFailure,
+            InternetConnectionFailure,
+            ExceptionFailure,
+            Success
+        }
+
+        public enum ClockInState
+        {
+            ClockInSuccess,
+            ClockInFailure,
+            PunchSuccess,
+            PunchFailure
+        }
+
         #region App Side Enums
 
         /// <summary>
@@ -1664,6 +1690,22 @@ namespace KekaWear.Models
     public class DescriptionAttribute : Attribute
     {
         public string Title { get; set; }
+    }
+
+    public class ResultObject
+    {
+        public int State { get; set; }
+        public dynamic Result { get; set; }
+    }
+
+    public class CommandObjectClass
+    {
+        public int command;
+
+        public CommandObjectClass(int command)
+        {
+            this.command = command;
+        }
     }
 
 }
